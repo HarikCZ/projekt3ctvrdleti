@@ -1,0 +1,136 @@
+<form method="post">
+  <fieldset>
+    <legend>
+      <h1>Vytvoření zaměstnance</h1>
+    </legend>
+
+
+
+
+    <div class="my-2">
+
+
+
+
+      <div class="container">
+        <div class="row">
+
+          <div class="col-sm">
+
+            <div class="my-2">
+              <label for="name">name</label>
+              <input id="name" name="name" class="form-control" type="text" value="{{room.name}}" />
+              <!--mělo by být required-->
+              {{#errors.name}}
+                <div class="form-text text-warning">{{errors.name}}</div>
+              {{/errors.name}}
+            </div>
+            <div class="my-2">
+              <label for="surname">surname</label>
+              <input id="surname" name="surname" class="form-control" type="text" value="{{room.surname}}" />
+              <!--mělo by být required-->
+              {{#errors.no}}
+                <div class="form-text text-warning">{{errors.surname}}</div>
+              {{/errors.no}}
+            </div>
+            <div class="my-2">
+              <label for="job">job</label>
+              <input id="job" name="job" class="form-control" type="text" value="{{room.job}}" />
+              <!--mělo by být required-->
+              {{#errors.job}}
+                <div class="form-text text-warning">{{errors.job}}</div>
+              {{/errors.job}}
+            </div>
+            <div class="my-2">
+              <label for="wage">wage</label>
+              <input id="wage" name="wage" class="form-control" type="text" value="{{room.wage}}" />
+              <!--mělo by být required-->
+              {{#errors.wage}}
+                <div class="form-text text-warning">{{errors.wage}}</div>
+              {{/errors.wage}}
+            </div>
+            <div class="my-2">
+
+
+              <div class="form-group">
+                <label for="sel1">room</label>
+                <select class="form-control" id="sel1">
+                  {{#keys}}
+                    <option value="{{room_id}}">{{name}}</option>
+                  {{/keys}}
+                </select>
+              </div>
+
+
+
+              {{#errors.room}}
+                <div class="form-text text-warning">{{errors.room}}</div>
+              {{/errors.room}}
+
+
+            </div>
+            <div class="my-2">
+              <label for="login">login</label>
+              <input id="login" name="login" class="form-control" type="text" value="{{login.login}}" />
+              {{#errors.login}}
+                <div class="form-text text-warning">{{errors.login}}</div>
+              {{/errors.login}}
+            </div>
+            <div class="my-2">
+              <label for="pswd">pswd</label>
+              <input id="pswd" name="pswd" class="form-control" type="text" value="{{pswd.pswd}}" />
+              {{#errors.pswd}}
+                <div class="form-text text-warning">{{errors.pswd}}</div>
+              {{/errors.pswd}}
+            </div>
+            <div class="my-2">
+              <label for="admin">admin</label>
+              <input id="admin" name="admin" class="form-control" type="text" value="{{admin.admin}}" />
+              {{#errors.admin}}
+                <div class="form-text text-warning">{{errors.admin}}</div>
+              {{/errors.admin}}
+            </div>
+            <div class="my-2">
+
+
+              <div class="form-check">
+                <label><input type="radio" class="form-check-input" name="user" checked>user</label>
+              </div>
+
+              <div class="form-check">
+                <label><input type="radio" class="form-check-input"name="user">admin</label>
+              </div>
+
+
+
+
+            </div>
+
+          </div>
+
+
+
+          <div class="col-sm">
+            <label for="rooms">Klíče</label>
+            <select name="roomsForKeys[]" id="rooms" class="form-select" size="15" id="choices-multiple-remove-button" multiple>
+              {{#rooms}}
+                <option value="{{room_id}}">{{name}}</option>
+              {{/rooms}}
+            </select>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="my-2">
+        {{#create}}<input type="hidden" name="action" value="create" />
+          <input type="submit" value="Create" class="btn btn-primary" />{{/create}}
+        {{#update}}<input type="hidden" name="action" value="update" />
+          <input type="hidden" name="room_id" value="{{room.room_id}}">
+          <input type="submit" value="Update" class="btn btn-primary" />{{/update}}
+      </div>
+
+    </div>
+    <fieldset>
+</form>
